@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Quality Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sleep Quality Tracker</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="120" required>
+            </div>
+
+            <div class="form-group">
+                <label for="heart_rate">Heart Rate (bpm):</label>
+                <input type="number" id="heart_rate" name="heart_rate" min="30" max="200" required>
+            </div>
+
+            <div class="form-group">
+                <label for="activity_level">Daily Steps:</label>
+                <input type="number" id="activity_level" name="activity_level" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sleep_duration">Sleep Duration (hours):</label>
+                <input type="number" id="sleep_duration" name="sleep_duration" step="0.1" min="0" max="24" required>
+            </div>
+
+            <div class="form-group">
+                <label for="room_temp">Room Temperature (°C):</label>
+                <input type="number" id="room_temp" name="room_temp" step="0.1" min="0" max="40" required>
+            </div>
+
+            <div class="form-group">
+                <label for="caffeine">Caffeine (cups):</label>
+                <input type="number" id="caffeine" name="caffeine" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="alcohol">Alcohol (drinks):</label>
+                <input type="number" id="alcohol" name="alcohol" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="screen_time">Screen Time (hours):</label>
+                <input type="number" id="screen_time" name="screen_time" step="0.1" min="0" required>
+            </div>
+
+            <button type="submit" class="btn">Submit Data</button>
+        </form>
+
+        {% if plot_url %}
+            <div class="chart-container">
+                <h2>Your Sleep Data</h2>
+                <img src="data:image/png;base64,{{ plot_url }}" alt="Sleep Data Visualization">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
