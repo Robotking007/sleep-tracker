@@ -2,7 +2,7 @@
 
 A Flask-based web application that tracks sleep patterns, predicts sleep quality, and provides personalized improvement suggestions.
 
-![Sleep Quality Tracker Screenshot](static/screenshot.png)
+
 
 ## Features ✨
 
@@ -43,7 +43,7 @@ sleep-quality-tracker/
 │ └── sleep_data.csv # Sleep records database
 ├── static/
 │ ├── styles.css # Main stylesheet
-│ └── app.js # Client-side scripts
+│
 └── templates/
 └── index.html # Main template
 
