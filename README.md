@@ -57,10 +57,5 @@ Key features of this README:
 5. **Sample Data**: Helps users understand expected inputs
 6. **Contribution Guidelines**: Encourages community involvement
 
-You may want to:
-- Add actual screenshot (replace `static/screenshot.png`)
-- Update the live demo link when deployed
-- Add your contact information
-- Include any additional deployment notes specific to your setup
 
 The README follows best practices for open-source projects while being specifically tailored to your sleep tracking application.
